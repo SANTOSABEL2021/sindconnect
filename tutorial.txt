@@ -1,0 +1,53 @@
+Instalar Python
+Instalar Pycharm
+
+Criar venv
+pyhton -m venv venv
+
+Entrar venv
+source venv/bin/activate
+venv/Scripts/activate
+
+Instalar Django
+pip install django
+
+Iniciar o Projeto
+django-admin startproject *nome_do_projeto_de_voces*
+
+Entrar na pasta do projeto
+cd *nome_do_projeto_de_voces*
+
+Executar o projeto
+python manage.py runserver
+
+Iniciar aplicação
+python manage.py startapp *nome_do_modulo_de_voces*
+
+Criar pasta templates na raiz do projeto
+Configurar a pasta templates no arquivo settings.py
+
+Fazer migração do modelo de dados
+python manage.py makemigrations
+
+Excutar a migração
+python manage.py migrate
+
+criar um super usuario
+python manage.py createsuperuser
+
+Configuração de arquivos estaticos (Imagens, CSS, JS, etc)
+pip install dj_static
+Importar Cling e MediaCling do dj_static para WSGI
+Adicionar Cling e MediaCling ao WSGI
+Importar Cling e MediaCling do dj_static para ASGI
+Adicionar Cling e MediaCling ao ASGI
+
+adicionar as configurações no arquivo settings.py
+
+Rodar collect static
+python manage.py collectstatic
+
+Documentação:
+CSS: https://www.w3schools.com/css/
+HTML: https://www.w3schools.com/html/default.asp
+Bootstrap: https://getbootstrap.com/docs/5.3/layout/grid/

@@ -1,0 +1,29 @@
+h1{
+    color: red;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHCW1Uw5t2nTLwa6BhMx4RFE2heuXSox3Yw&s");
+}
+.cor{
+    color: yellow;
+    font-size: 45px;
+    background-color: darkred;
+    font-family: "Arial Black";
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    margin: 200px;
+    border: 50px solid deeppink;
+    border-radius: 40px;
+}
+.divc{
+    width: 500px;
+    height: 1000px;
+    border: 40px solid deepskyblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover{
+    color: deeppink;
+}

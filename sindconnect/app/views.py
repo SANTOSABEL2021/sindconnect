@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def home(request):
+    pais = 'Gana'
+    return render(request, 'home.html', {'pais':pais})
