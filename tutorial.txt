@@ -47,6 +47,12 @@ adicionar as configurações no arquivo settings.py
 Rodar collect static
 python manage.py collectstatic
 
+criar requeriment.txt
+pip freeze > requirements.txt
+
+executar
+pip install -r requirements.txt
+
 Documentação:
 CSS: https://www.w3schools.com/css/
 HTML: https://www.w3schools.com/html/default.asp
