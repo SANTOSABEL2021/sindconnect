@@ -2,7 +2,7 @@ Instalar Python
 Instalar Pycharm
 
 Criar venv
-pyhton -m venv venv
+python -m venv venv
 
 Entrar venv
 source venv/bin/activate
