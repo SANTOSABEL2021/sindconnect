@@ -2,47 +2,71 @@
 
 {% block conteudo %}
 
-<h1>Meus Dados</h1>
-<p>Visualize e atualize seus dados cadastrais.</p>
+<h1>Meus Pagamentos</h1>
+
+<p>
+Histórico completo dos pagamentos realizados.
+</p>
 
 <div class="card shadow-sm">
-    <div class="card-header bg-primary text-white">
-        Sócio Pagamentos
+
+    <div class="card-header bg-info text-white">
+        Pagamentos Realizados
     </div>
 
     <div class="card-body">
 
-        <form>
-            <div class="row">
+        <table class="table table-hover">
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Nome completo</label>
-                    <input type="text" class="form-control" value="{{ request.user.first_name }}">
-                </div>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Referência</th>
+                    <th>Valor</th>
+                    <th>Forma</th>
+                </tr>
+            </thead>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">CPF</label>
-                    <input type="text" class="form-control" value="{{ request.user.username }}">
-                </div>
+            <tbody>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">E-mail</label>
-                    <input type="email" class="form-control" value="{{ request.user.email }}">
-                </div>
+                {% for pagamento in pagamentos %}
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Telefone</label>
-                    <input type="text" class="form-control">
-                </div>
+                <tr>
 
-            </div>
+                    <td>
+                        {{ pagamento.data_pagamento }}
+                    </td>
 
-            <button class="btn btn-primary">
-                Salvar Alterações
-            </button>
-        </form>
+                    <td>
+                        {{ pagamento.referencia }}
+                    </td>
+
+                    <td>
+                        R$ {{ pagamento.valor }}
+                    </td>
+
+                    <td>
+                        {{ pagamento.forma_pagamento }}
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="4">
+                        Nenhum pagamento encontrado.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
 
     </div>
+
 </div>
 
 {% endblock %}

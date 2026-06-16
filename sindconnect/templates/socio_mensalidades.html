@@ -2,47 +2,72 @@
 
 {% block conteudo %}
 
-<h1>Meus Dados</h1>
-<p>Visualize e atualize seus dados cadastrais.</p>
+<h1>Minhas Mensalidades</h1>
+<p>Acompanhe suas mensalidades.</p>
 
 <div class="card shadow-sm">
-    <div class="card-header bg-primary text-white">
-        Sócio mensalidade
+
+    <div class="card-header bg-success text-white">
+        Histórico de Mensalidades
     </div>
 
     <div class="card-body">
 
-        <form>
-            <div class="row">
+        <table class="table table-striped">
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Nome completo</label>
-                    <input type="text" class="form-control" value="{{ request.user.first_name }}">
-                </div>
+            <thead>
+                <tr>
+                    <th>Competência</th>
+                    <th>Vencimento</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">CPF</label>
-                    <input type="text" class="form-control" value="{{ request.user.username }}">
-                </div>
+            <tbody>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">E-mail</label>
-                    <input type="email" class="form-control" value="{{ request.user.email }}">
-                </div>
+                {% for mensalidade in mensalidades %}
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Telefone</label>
-                    <input type="text" class="form-control">
-                </div>
+                <tr>
 
-            </div>
+                    <td>{{ mensalidade.competencia }}</td>
 
-            <button class="btn btn-primary">
-                Salvar Alterações
-            </button>
-        </form>
+                    <td>
+                        {{ mensalidade.vencimento }}
+                    </td>
+
+                    <td>
+                        R$ {{ mensalidade.valor }}
+                    </td>
+
+                    <td>
+
+                        {% if mensalidade.paga %}
+
+                        <span class="badge bg-success">
+                            Paga
+                        </span>
+
+                        {% else %}
+
+                        <span class="badge bg-danger">
+                            Em aberto
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
 
     </div>
+
 </div>
 
 {% endblock %}

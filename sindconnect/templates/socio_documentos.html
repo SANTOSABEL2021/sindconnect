@@ -2,47 +2,62 @@
 
 {% block conteudo %}
 
-<h1>Meus Dados</h1>
-<p>Visualize e atualize seus dados cadastrais.</p>
+<h1>Documentos</h1>
+<p>Documentos disponíveis para download.</p>
 
 <div class="card shadow-sm">
+
     <div class="card-header bg-primary text-white">
-        Socio documentos
+        Meus Documentos
     </div>
 
     <div class="card-body">
 
-        <form>
-            <div class="row">
+        <table class="table table-hover">
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Nome completo</label>
-                    <input type="text" class="form-control" value="{{ request.user.first_name }}">
-                </div>
+            <thead>
+                <tr>
+                    <th>Documento</th>
+                    <th>Data</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">CPF</label>
-                    <input type="text" class="form-control" value="{{ request.user.username }}">
-                </div>
+            <tbody>
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">E-mail</label>
-                    <input type="email" class="form-control" value="{{ request.user.email }}">
-                </div>
+                {% for documento in documentos %}
 
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Telefone</label>
-                    <input type="text" class="form-control">
-                </div>
+                <tr>
+                    <td>{{ documento.nome }}</td>
+                    <td>{{ documento.data }}</td>
 
-            </div>
+                    <td>
+                        <a href="{{ documento.arquivo.url }}"
+                           class="btn btn-primary btn-sm">
 
-            <button class="btn btn-primary">
-                Salvar Alterações
-            </button>
-        </form>
+                            Download
+
+                        </a>
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="3">
+                        Nenhum documento disponível.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
 
     </div>
+
 </div>
 
 {% endblock %}

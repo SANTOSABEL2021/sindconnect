@@ -50,8 +50,6 @@ python manage.py collectstatic
 criar requeriment.txt
 pip freeze > requirements.txt
 
-executar
-pip install -r requirements.txt
 
 precisa criar os usuarios usando o super usuario
 Socio com dados de acessos de cpf e senha
