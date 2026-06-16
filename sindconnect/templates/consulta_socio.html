@@ -1,0 +1,60 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<h2>Consulta de Sócios</h2>
+
+<div class="card">
+
+    <div class="card-body">
+
+        <input
+            type="text"
+            class="form-control mb-3"
+            placeholder="Pesquisar por nome ou CPF">
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for socio in socios %}
+
+                <tr>
+                    <td>{{ socio.nome }}</td>
+                    <td>{{ socio.cpf }}</td>
+                    <td>{{ socio.telefone }}</td>
+
+                    <td>
+
+                        <button class="btn btn-primary btn-sm">
+                            Editar
+                        </button>
+
+                        <button class="btn btn-danger btn-sm">
+                            Excluir
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

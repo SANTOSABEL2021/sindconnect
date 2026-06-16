@@ -53,6 +53,12 @@ pip freeze > requirements.txt
 executar
 pip install -r requirements.txt
 
+precisa criar os usuarios usando o super usuario
+Socio com dados de acessos de cpf e senha
+Atendente com dados de acessos e-mail e senha
+observar que o grupo Socio, o S é maiusculo
+observar que o grupo Atendente o A é maiusculo
+
 Documentação:
 CSS: https://www.w3schools.com/css/
 HTML: https://www.w3schools.com/html/default.asp

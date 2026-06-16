@@ -1,0 +1,36 @@
+{% extends 'base_socio.html' %}
+
+{% block conteudo %}
+
+<h1>Bem-vindo, {{ request.user.first_name|default:request.user.username }}!</h1>
+<p>Acompanhe suas informações e benefícios.</p>
+
+<div class="row g-4 mt-3">
+
+    <div class="col-md-3">
+        <div class="info-card">
+            <div class="circle blue">👤</div>
+            <div>
+                <span>Situação</span>
+                <h3 class="text-primary">Ativo</h3>
+                <small>Associado desde</small>
+                <p>15/03/2019</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="info-card">
+            <div class="circle green">💲</div>
+            <div>
+                <span>Mensalidade</span>
+                <h3 class="text-success">Em dia</h3>
+                <small>Próximo vencimento</small>
+                <p>31/05/2025</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

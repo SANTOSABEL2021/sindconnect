@@ -1,0 +1,49 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+        Atualização cadastral
+    </div>
+
+    <div class="card-body">
+
+        <form>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Nome</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>CPF</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Telefone</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>E-mail</label>
+                    <input type="email" class="form-control">
+                </div>
+
+            </div>
+
+            <button class="btn btn-success">
+                Salvar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
