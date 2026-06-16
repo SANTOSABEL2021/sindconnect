@@ -8,6 +8,8 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 
 
+from .forms import SocioForm
+
 
 def logout_usuario(request):
     logout(request)
@@ -105,3 +107,19 @@ def usuarios(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+def cadastrar_socio(request):
+    if request.method == 'POST':
+        form = SocioForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('listar_socios')
+    else:
+        form = SocioForm()
+
+    return render(request, 'cadastrar_socio.html', {'form': form})
+
+def listar_socios(request):
+    socios = Socio.objects.all()
+    return render(request, 'listar_socios.html', {'socios': socios})

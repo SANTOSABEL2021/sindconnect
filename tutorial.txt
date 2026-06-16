@@ -60,6 +60,20 @@ Atendente com dados de acessos e-mail e senha
 observar que o grupo Socio, o S é maiusculo
 observar que o grupo Atendente o A é maiusculo
 
+SENHAS:
+admin:
+login: santosabel
+senha: a
+
+atendente
+atendente1@sindconnect.com
+senha:
+Ab515241
+
+socio:
+35486740204
+senha:
+Ab515241
 
 
 Documentação:

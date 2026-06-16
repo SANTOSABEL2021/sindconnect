@@ -1,0 +1,9 @@
+<!-- templates/listar_socios.html -->
+
+<h1>Sócios cadastrados</h1>
+
+{% for socio in socios %}
+    <p>{{ socio.nome }} - {{ socio.cpf }} - {{ socio.telefone }}</p>
+{% empty %}
+    <p>Nenhum sócio cadastrado.</p>
+{% endfor %}

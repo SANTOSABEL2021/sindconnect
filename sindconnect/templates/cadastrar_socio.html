@@ -1,0 +1,9 @@
+<!-- templates/cadastrar_socio.html -->
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>

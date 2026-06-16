@@ -35,5 +35,6 @@ urlpatterns = [
     path('atendente/dashboard/', views.dashboard, name='dashboard' ),
 
     path('logout/',views.logout_usuario, name='logout'),
+    path('socios/cadastrar/', views.cadastrar_socio, name='cadastrar_socio'),
 
 ]
