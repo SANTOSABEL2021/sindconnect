@@ -50,14 +50,46 @@ def home_atendente(request):
     return render(request, "home_atendente.html")
 
 
+# @login_required
+# def home_socio(request):
+#     return render(request, 'home_socio.html')
+
+from django.db.models import Sum
+from .models import Socio, Mensalidade, Pagamento
+
+
 @login_required
 def home_socio(request):
-    return render(request, 'home_socio.html')
+    socio = get_object_or_404(Socio, cpf=request.user.username)
+
+    total_mensalidades = Mensalidade.objects.count()
+
+    pagamentos = Pagamento.objects.filter(socio=socio)
+
+    total_pagamentos = pagamentos.count()
+
+    total_pago = pagamentos.aggregate(
+        total=Sum('valor_pago')
+    )['total'] or 0
+
+    mensalidades_em_aberto = total_mensalidades - total_pagamentos
+
+    return render(request, 'home_socio.html', {
+        'socio': socio,
+        'total_mensalidades': total_mensalidades,
+        'total_pagamentos': total_pagamentos,
+        'total_pago': total_pago,
+        'mensalidades_em_aberto': mensalidades_em_aberto,
+    })
 
 
 @login_required
 def socio_dados(request):
-    return render(request, 'socio_dados.html')
+    socio = get_object_or_404(Socio, cpf=request.user.username)
+
+    return render(request, 'socio_dados.html', {
+        'socio': socio
+    })
 
 
 @login_required
@@ -85,14 +117,6 @@ def home_atendente(request):
 @login_required
 def consulta_socio(request):
     return render(request, 'consulta_socio.html')
-
-
-@login_required
-def atualizacao_cadastral(request):
-    return render(request, 'atualizacao_cadastral.html')
-
-
-
 
 
 @login_required
@@ -323,4 +347,28 @@ def excluir_pagamento(request, id):
 
     return render(request, 'excluir_pagamento.html', {
         'pagamento': pagamento
+    })
+
+@login_required
+def socio_mensalidades(request):
+    socio = get_object_or_404(Socio, cpf=request.user.username)
+
+    mensalidades = Mensalidade.objects.all().order_by('-id')
+
+    return render(request, 'socio_mensalidades.html', {
+        'socio': socio,
+        'mensalidades': mensalidades
+    })
+
+@login_required
+def socio_pagamentos(request):
+    socio = get_object_or_404(Socio, cpf=request.user.username)
+
+    pagamentos = Pagamento.objects.filter(
+        socio=socio
+    ).order_by('-data_pagamento')
+
+    return render(request, 'socio_pagamentos.html', {
+        'socio': socio,
+        'pagamentos': pagamentos
     })

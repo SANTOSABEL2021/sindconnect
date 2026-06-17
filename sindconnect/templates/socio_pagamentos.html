@@ -3,62 +3,42 @@
 {% block conteudo %}
 
 <h1>Meus Pagamentos</h1>
-
-<p>
-Histórico completo dos pagamentos realizados.
-</p>
+<p>Acompanhe os pagamentos realizados.</p>
 
 <div class="card shadow-sm">
 
-    <div class="card-header bg-info text-white">
-        Pagamentos Realizados
+    <div class="card-header bg-primary text-white">
+        Histórico de Pagamentos
     </div>
 
     <div class="card-body">
 
-        <table class="table table-hover">
+        <table class="table table-striped table-hover">
 
-            <thead>
+            <thead class="table-dark">
                 <tr>
-                    <th>Data</th>
-                    <th>Referência</th>
-                    <th>Valor</th>
-                    <th>Forma</th>
+                    <th>Mensalidade</th>
+                    <th>Competência</th>
+                    <th>Valor Pago</th>
+                    <th>Data do Pagamento</th>
                 </tr>
             </thead>
 
             <tbody>
 
                 {% for pagamento in pagamentos %}
-
                 <tr>
-
-                    <td>
-                        {{ pagamento.data_pagamento }}
-                    </td>
-
-                    <td>
-                        {{ pagamento.referencia }}
-                    </td>
-
-                    <td>
-                        R$ {{ pagamento.valor }}
-                    </td>
-
-                    <td>
-                        {{ pagamento.forma_pagamento }}
-                    </td>
-
+                    <td>{{ pagamento.mensalidade }}</td>
+                    <td>{{ pagamento.competencia_paga }}</td>
+                    <td>R$ {{ pagamento.valor_pago }}</td>
+                    <td>{{ pagamento.data_pagamento|date:"d/m/Y" }}</td>
                 </tr>
-
                 {% empty %}
-
                 <tr>
-                    <td colspan="4">
+                    <td colspan="4" class="text-center">
                         Nenhum pagamento encontrado.
                     </td>
                 </tr>
-
                 {% endfor %}
 
             </tbody>

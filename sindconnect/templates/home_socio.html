@@ -2,33 +2,73 @@
 
 {% block conteudo %}
 
-<h1>Bem-vindo, {{ request.user.first_name|default:request.user.username }}!</h1>
-<p>Acompanhe suas informações e benefícios.</p>
+<h1>Bem-vindo, {{ socio.nome }}</h1>
+<p>Acompanhe seu resumo financeiro e cadastral.</p>
 
-<div class="row g-4 mt-3">
+<div class="row">
 
-    <div class="col-md-3">
-        <div class="info-card">
-            <div class="circle blue">👤</div>
-            <div>
-                <span>Situação</span>
-                <h3 class="text-primary">Ativo</h3>
-                <small>Associado desde</small>
-                <p>15/03/2019</p>
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6>Mensalidades</h6>
+                <h2>{{ total_mensalidades }}</h2>
+                <small>Total cadastradas</small>
             </div>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="info-card">
-            <div class="circle green">💲</div>
-            <div>
-                <span>Mensalidade</span>
-                <h3 class="text-success">Em dia</h3>
-                <small>Próximo vencimento</small>
-                <p>31/05/2025</p>
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6>Pagamentos</h6>
+                <h2>{{ total_pagamentos }}</h2>
+                <small>Pagamentos realizados</small>
             </div>
         </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6>Em Aberto</h6>
+                <h2>{{ mensalidades_em_aberto }}</h2>
+                <small>Mensalidades pendentes</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6>Total Pago</h6>
+                <h2>R$ {{ total_pago }}</h2>
+                <small>Valor acumulado</small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow-sm mt-4">
+
+    <div class="card-header bg-primary text-white">
+        Atalhos
+    </div>
+
+    <div class="card-body">
+
+        <a href="{% url 'socio_dados' %}" class="btn btn-primary">
+            Meus Dados
+        </a>
+
+        <a href="{% url 'socio_mensalidades' %}" class="btn btn-warning">
+            Minhas Mensalidades
+        </a>
+
+        <a href="{% url 'socio_pagamentos' %}" class="btn btn-success">
+            Meus Pagamentos
+        </a>
+
     </div>
 
 </div>

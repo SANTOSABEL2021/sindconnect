@@ -17,26 +17,62 @@
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">Nome Completo</label>
-                <input type="text" class="form-control"
-                       value="{{ socio.nome }}" readonly>
+                <input type="text" class="form-control" value="{{ socio.nome }}" readonly>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">CPF</label>
-                <input type="text" class="form-control"
-                       value="{{ socio.cpf }}" readonly>
+                <input type="text" class="form-control" value="{{ socio.cpf }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">RG</label>
+                <input type="text" class="form-control" value="{{ socio.rg }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Data de nascimento</label>
+                <input type="text" class="form-control" value="{{ socio.data_nascimento|date:'d/m/Y' }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Sexo</label>
+                <input type="text" class="form-control" value="{{ socio.get_sexo_display }}" readonly>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">Telefone</label>
-                <input type="text" class="form-control"
-                       value="{{ socio.telefone }}" readonly>
+                <input type="text" class="form-control" value="{{ socio.telefone }}" readonly>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">E-mail</label>
-                <input type="text" class="form-control"
-                       value="{{ socio.email }}" readonly>
+                <input type="text" class="form-control" value="{{ socio.email }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Cargo ou função</label>
+                <input type="text" class="form-control" value="{{ socio.cargo_funcao }}" readonly>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Endereço</label>
+                <input type="text" class="form-control" value="{{ socio.endereco }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Data de filiação</label>
+                <input type="text" class="form-control" value="{{ socio.data_filiacao|date:'d/m/Y' }}" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Cadastrado em</label>
+                <input type="text" class="form-control" value="{{ socio.criado_em|date:'d/m/Y H:i' }}" readonly>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Documentos</label>
+                <textarea class="form-control" rows="3" readonly>{{ socio.documentos }}</textarea>
             </div>
 
         </div>
