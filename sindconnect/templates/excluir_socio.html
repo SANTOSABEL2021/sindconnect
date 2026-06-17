@@ -1,0 +1,34 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-danger text-white">
+        Confirmar Exclusão
+    </div>
+
+    <div class="card-body">
+
+        <p>Tem certeza que deseja excluir o sócio?</p>
+
+        <h5>{{ socio.nome }}</h5>
+        <p>CPF: {{ socio.cpf }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">
+                Sim, excluir
+            </button>
+
+            <a href="{% url 'lista_socios' %}" class="btn btn-secondary">
+                Cancelar
+            </a>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

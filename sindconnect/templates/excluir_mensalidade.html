@@ -1,0 +1,52 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-danger text-white">
+        Confirmar Exclusão
+    </div>
+
+    <div class="card-body">
+
+        <h5>Deseja excluir esta mensalidade?</h5>
+
+        <hr>
+
+        <p>
+            <strong>Categoria:</strong>
+            {{ mensalidade.categoria }}
+        </p>
+
+        <p>
+            <strong>Competência:</strong>
+            {{ mensalidade.competencia }}
+        </p>
+
+        <p>
+            <strong>Valor:</strong>
+            R$ {{ mensalidade.valor }}
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Sim, Excluir
+            </button>
+
+            <a href="{% url 'lista_mensalidades' %}"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

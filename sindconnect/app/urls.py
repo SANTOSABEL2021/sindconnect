@@ -35,6 +35,61 @@ urlpatterns = [
     path('atendente/dashboard/', views.dashboard, name='dashboard' ),
 
     path('logout/',views.logout_usuario, name='logout'),
-    path('socios/cadastrar/', views.cadastrar_socio, name='cadastrar_socio'),
+
+
+    path('socios/', views.lista_socios, name='lista_socios'),
+    path('socios/editar/<int:id>/', views.editar_socio,name='editar_socio'),
+    path('socios/excluir/<int:id>/', views.excluir_socio, name='excluir_socio'),
+
+
+    # MENSALIDADES
+    path(
+        'mensalidades/',
+        views.lista_mensalidades,
+        name='lista_mensalidades'
+    ),
+
+    path(
+        'mensalidades/cadastrar/',
+        views.cadastro_mensalidade,
+        name='cadastro_mensalidade'
+    ),
+
+    path(
+        'mensalidades/editar/<int:id>/',
+        views.editar_mensalidade,
+        name='editar_mensalidade'
+    ),
+
+    path(
+        'mensalidades/excluir/<int:id>/',
+        views.excluir_mensalidade,
+        name='excluir_mensalidade'
+    ),
+
+    # PAGAMENTOS
+    path(
+        'pagamentos/',
+        views.lista_pagamentos,
+        name='lista_pagamentos'
+    ),
+
+    path(
+        'pagamentos/cadastrar/',
+        views.cadastro_pagamento,
+        name='cadastro_pagamento'
+    ),
+
+    path(
+        'pagamentos/editar/<int:id>/',
+        views.editar_pagamento,
+        name='editar_pagamento'
+    ),
+
+    path(
+        'pagamentos/excluir/<int:id>/',
+        views.excluir_pagamento,
+        name='excluir_pagamento'
+    ),
 
 ]

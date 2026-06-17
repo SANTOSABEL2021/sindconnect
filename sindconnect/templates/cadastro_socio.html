@@ -10,32 +10,69 @@
 
     <div class="card-body">
 
-        <form>
+        <form method="post">
+            {% csrf_token %}
 
             <div class="row">
 
                 <div class="col-md-6 mb-3">
                     <label>Nome</label>
-                    <input type="text" class="form-control">
+                    {{ form.nome }}
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>CPF</label>
-                    <input type="text" class="form-control">
+                    {{ form.cpf }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>RG</label>
+                    {{ form.rg }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Data de nascimento</label>
+                    {{ form.data_nascimento }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Sexo</label>
+                    {{ form.sexo }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Endereço</label>
+                    {{ form.endereco }}
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>Telefone</label>
-                    <input type="text" class="form-control">
+                    {{ form.telefone }}
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>E-mail</label>
-                    <input type="email" class="form-control">
+                    {{ form.email }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Cargo ou função</label>
+                    {{ form.cargo_funcao }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Data de filiação</label>
+                    {{ form.data_filiacao }}
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label>Relação de documentos</label>
+                    {{ form.documentos }}
                 </div>
 
             </div>
-            <button class="btn btn-success">
+
+            <button type="submit" class="btn btn-success">
                 Salvar
             </button>
 

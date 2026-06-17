@@ -31,7 +31,7 @@
 
         <p class="menu-title">CADASTROS</p>
 
-        <a href="{% url 'cadastro_socio' %}" class="menu-item">
+        <a href="{% url 'lista_socios' %}" class="menu-item">
             👤 Cadastro de Sócios
         </a>
 
@@ -39,19 +39,16 @@
             🔍 Consulta de Sócios
         </a>
 
-        <a href="{% url 'atualizacao_cadastral' %}" class="menu-item">
-            📋 Atualização Cadastral
-        </a>
 
         <p class="menu-title">FINANCEIRO</p>
 
-        <a href="{% url 'mensalidades' %}" class="menu-item">
-            📅 Mensalidades
-        </a>
+        <a href="{% url 'lista_mensalidades' %}" class="menu-item">
+    📅 Mensalidades
+</a>
 
-        <a href="{% url 'pagamentos' %}" class="menu-item">
-            💳 Pagamentos
-        </a>
+<a href="{% url 'lista_pagamentos' %}" class="menu-item">
+    💳 Pagamentos
+</a>
         <p class="menu-title">SISTEMA</p>
         <a href="{% url 'logout' %}" class="menu-item logout">
     🚪 Sair

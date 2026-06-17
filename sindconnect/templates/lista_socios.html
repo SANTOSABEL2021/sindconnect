@@ -2,36 +2,21 @@
 
 {% block conteudo %}
 
-<h2 class="mb-4">Consulta de Sócios</h2>
-
 <div class="card shadow">
 
-    <div class="card-header bg-primary text-white">
-        Pesquisar Sócios
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <span>Lista de Sócios</span>
+
+        <a href="{% url 'cadastro_socio' %}" class="btn btn-light btn-sm">
+            Novo Sócio
+        </a>
     </div>
 
     <div class="card-body">
 
-        <form method="get">
-
-            <div class="input-group mb-3">
-                <input
-                    type="text"
-                    name="q"
-                    value="{{ request.GET.q }}"
-                    class="form-control"
-                    placeholder="Pesquisar por nome ou CPF">
-
-                <button class="btn btn-primary" type="submit">
-                    Pesquisar
-                </button>
-
-                <a href="{% url 'consulta_socio' %}" class="btn btn-secondary">
-                    Limpar
-                </a>
-            </div>
-
-        </form>
+        <p class="text-muted">
+            Total de sócios cadastrados: <strong>{{ socios|length }}</strong>
+        </p>
 
         <div class="table-responsive">
 
@@ -39,9 +24,12 @@
 
                 <thead class="table-dark">
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>CPF</th>
                         <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Data de Filiação</th>
                         <th width="180">Ações</th>
                     </tr>
                 </thead>
@@ -49,33 +37,35 @@
                 <tbody>
 
                     {% for socio in socios %}
-
                     <tr>
+                        <td>{{ socio.id }}</td>
                         <td>{{ socio.nome }}</td>
                         <td>{{ socio.cpf }}</td>
                         <td>{{ socio.telefone }}</td>
+                        <td>{{ socio.email }}</td>
+                        <td>{{ socio.data_filiacao|date:"d/m/Y" }}</td>
 
                         <td>
+
+
                             <a href="{% url 'editar_socio' socio.id %}"
-                               class="btn btn-warning btn-sm">
-                                Editar
+                            class="btn btn-warning btn-sm">
+                            Editar
                             </a>
 
-                            <a href="{% url 'excluir_socio' socio.id %}"
-                               class="btn btn-danger btn-sm">
-                                Excluir
+
+                            <a href="{% url 'excluir_socio' socio.id %}" class="btn btn-danger btn-sm">
+                                    Excluir
                             </a>
+
                         </td>
                     </tr>
-
                     {% empty %}
-
                     <tr>
-                        <td colspan="4" class="text-center">
-                            Nenhum sócio encontrado.
+                        <td colspan="7" class="text-center">
+                            Nenhum sócio cadastrado.
                         </td>
                     </tr>
-
                     {% endfor %}
 
                 </tbody>

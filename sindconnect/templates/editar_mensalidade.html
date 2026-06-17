@@ -1,0 +1,51 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-warning">
+        Editar Mensalidade
+    </div>
+
+    <div class="card-body">
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+                    <label>Categoria</label>
+                    {{ form.categoria }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Competência</label>
+                    {{ form.competencia }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Valor</label>
+                    {{ form.valor }}
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Atualizar
+            </button>
+
+            <a href="{% url 'lista_mensalidades' %}"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-warning">
+        Editar Pagamento
+    </div>
+
+    <div class="card-body">
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Sócio</label>
+                    {{ form.socio }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Mensalidade</label>
+                    {{ form.mensalidade }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Competência paga</label>
+                    {{ form.competencia_paga }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Valor pago</label>
+                    {{ form.valor_pago }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Data do pagamento</label>
+                    {{ form.data_pagamento }}
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Atualizar
+            </button>
+
+            <a href="{% url 'lista_pagamentos' %}" class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

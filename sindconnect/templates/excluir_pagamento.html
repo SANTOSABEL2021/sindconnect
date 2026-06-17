@@ -1,0 +1,39 @@
+{% extends 'base_atendente.html' %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-danger text-white">
+        Confirmar Exclusão
+    </div>
+
+    <div class="card-body">
+
+        <h5>Deseja excluir este pagamento?</h5>
+
+        <hr>
+
+        <p><strong>Sócio:</strong> {{ pagamento.socio.nome }}</p>
+        <p><strong>Mensalidade:</strong> {{ pagamento.mensalidade }}</p>
+        <p><strong>Competência paga:</strong> {{ pagamento.competencia_paga }}</p>
+        <p><strong>Valor pago:</strong> R$ {{ pagamento.valor_pago }}</p>
+        <p><strong>Data:</strong> {{ pagamento.data_pagamento|date:"d/m/Y" }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">
+                Sim, Excluir
+            </button>
+
+            <a href="{% url 'lista_pagamentos' %}" class="btn btn-secondary">
+                Cancelar
+            </a>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
